@@ -1,0 +1,19 @@
+{
+  "name": "get-location",
+  "version": "1.0.0",
+  "description": "netlify functions:create - default template for node fetch function",
+  "main": "get-location.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "serverless",
+    "js"
+  ],
+  "author": "Netlify",
+  "license": "MIT",
+  "dependencies": {
+    "node-ipinfo": "^1.0.1"
+  }
+}
