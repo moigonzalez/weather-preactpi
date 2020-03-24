@@ -1,2 +1,7 @@
 [build]
   functions = "functions/"
+
+[dev]
+  command = "parcel src/index.html"
+  port = 1234
+  functionsPort = 34567

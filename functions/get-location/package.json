@@ -14,6 +14,7 @@
   "author": "Netlify",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "node-ipinfo": "^1.0.1"
   }
 }
