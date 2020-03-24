@@ -1,8 +1,8 @@
 {
-  "name": "get-location",
+  "name": "get-weather",
   "version": "1.0.0",
   "description": "netlify functions:create - default template for node fetch function",
-  "main": "get-location.js",
+  "main": "get-weather.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
     "node-ipinfo": "^1.0.1"
   }
 }

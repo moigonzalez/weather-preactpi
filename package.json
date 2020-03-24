@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cd functions/get-location && npm i",
+    "postinstall": "cd functions/get-weather && npm i",
     "build": "parcel build src/index.html",
     "dev": "netlify dev",
     "dev:client": "parcel src/index.html",
