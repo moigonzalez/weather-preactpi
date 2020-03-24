@@ -1,6 +1,6 @@
 /* eslint-disable */
 const IPinfo = require("node-ipinfo");
-const token = '';
+const token = 'b709c3c35ecf59';
 const ipinfo = new IPinfo(token);
 
 exports.handler = async function(event) {
