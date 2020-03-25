@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "preact": "^10.3.4",
-    "preact-compat": "^3.19.0"
+    "preact-compat": "^3.19.0",
+    "reset-css": "^5.0.1"
   },
   "eslintConfig": {
     "settings": {
