@@ -1,11 +1,20 @@
+:root {
+  --font-size-base: 24px;
+  --font-size-l: 6vh;
+  --font-size-m: 5vh;
+  --font-size-sm: 3vh;
+}
+
 @font-face {
   font-family: Aileron-UltraLight;
   src: url(../assets/Aileron-UltraLight.otf);
 }
 
 body {
-  font-family: Aileron-UltraLight;
-  font-size: 24px;
+  font-family: Aileron-UltraLight, Helvetica Neue;
+  font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
 #app {
@@ -18,7 +27,12 @@ body {
 }
 
 .title_headline {
+  font-size: var(--font-size-l);
   text-align: center;
+}
+
+.title_headline svg {
+  width: 2em;
 }
 
 .loader_container {
@@ -47,6 +61,7 @@ body {
   align-content: center;
   justify-content: center;
   flex-direction: column;
+  font-size: var(--font-size-m);
 }
 
 .title_logo svg {
@@ -63,4 +78,16 @@ body {
 
 .box_item {
   text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.25);
+  flex: 0.2;
+}
+
+.box_content {
+  font-size: var(--font-size-m);
+  margin-bottom: 0.25em;
+}
+
+.box_content small {
+  font-size: var(--font-size-sm);
 }

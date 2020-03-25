@@ -6,10 +6,10 @@ const Box = ({ weather, main, dt, ...rest }) => {
 
   return (<article className="box_item">
     <img alt={description} src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
-    <div>{new Date(dt * 1000).toLocaleTimeString()}</div>
-    <div>{weather[0].main}</div>
-    <div>{temp} °C</div>
-    <div><small>feels like {feels_like} °C</small></div>
+    <div className="box_content">{new Date(dt * 1000).toLocaleTimeString()}</div>
+    <div className="box_content">{temp} °C</div>
+    <div className="box_content">{weather[0].main}</div>
+    <div className="box_content"><small>feels like {feels_like} °C</small></div>
   </article>)
 }
 
