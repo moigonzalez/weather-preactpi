@@ -5,6 +5,7 @@ import AppComponent from '../components/App';
 
 const App = () => {
   const [weather, setWeather] = useState({});
+  const [isUpdating, setIsUpdating] = useState(false);
   const [sunrise, setSunrise] = useState(0);
   const [sunset, setSunset] = useState(0);
 
@@ -18,14 +19,15 @@ const App = () => {
   }
 
   useEffect(() => {
-    if (weather.cod === '200') {
+    if (weather.cod === '200' && !isUpdating) {
       const timeWorker = new Worker('../../static/update-time-worker.js');
-
-      timeWorker.postMessage(`${weather.list[0].dt}`)
+      timeWorker.postMessage(`${weather.list[0].dt}`);
+      setIsUpdating(true);
 
       timeWorker.onmessage = ({ data }) => {
         console.log(data);
         getWeather();
+        setIsUpdating(false);
       }
     }
   }, [weather]);
