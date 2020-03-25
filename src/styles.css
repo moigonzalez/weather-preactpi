@@ -1,3 +1,26 @@
+@font-face {
+  font-family: Aileron-UltraLight;
+  src: url(../assets/Aileron-UltraLight.otf);
+}
+
+body {
+  font-family: Aileron-UltraLight;
+  font-size: 24px;
+}
+
+#app {
+  display: grid;
+  height: 100vh;
+}
+
+.title_container {
+  display: flex;
+}
+
+.title_headline {
+  text-align: center;
+}
+
 .loader_container {
   height: 100vh;
   width: 100%;
@@ -16,6 +39,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1em;
+  width: 100%;
 }
 
 .title_logo {
@@ -28,5 +52,15 @@
 .title_logo svg {
   width: 2em;
   display: inline-block;
-  margin: 0 auto;
+  margin: 0 auto 0.5em auto;
+}
+
+.box_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.box_item {
+  text-align: center;
 }

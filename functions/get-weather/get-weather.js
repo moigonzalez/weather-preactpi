@@ -19,11 +19,7 @@ exports.handler = async function(event) {
       }
     }
     const weather = await
-        fetch(`http://api.openweathermap.org/data/2.5/forecast/
-          ?q=${_city},
-          ${_countryCode}&
-          APPID=${process.env.OPEN_WEATHER_TOKEN}&
-          units=metric`)
+        fetch(`http://api.openweathermap.org/data/2.5/forecast/?q=${_city},${_countryCode}&APPID=${process.env.OPEN_WEATHER_TOKEN}&units=metric`)
         .then(x => x.json());
     return {
       statusCode: 200,
