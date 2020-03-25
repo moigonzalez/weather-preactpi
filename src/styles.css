@@ -3,6 +3,13 @@
   --font-size-l: 6vh;
   --font-size-m: 5vh;
   --font-size-sm: 3vh;
+  /* Light mode */
+  --bg-color-light: #fff;
+  --font-color-light: #000;
+  --box-shadow-light: 0px 0px 14px -5px rgba(0,0,0,0.25);
+  /* Dark mode */
+  --bg-color-dark: #3a3a3a;
+  --box-shadow-dark: 0px 0px 18px -5px rgb(255, 255, 255);
 }
 
 @font-face {
@@ -15,6 +22,7 @@ body {
   font-size: var(--font-size-base);
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+  background-color: var(--bg-color-light);
 }
 
 #app {
