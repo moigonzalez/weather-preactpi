@@ -4,9 +4,7 @@ import Loader from './Loader';
 import Title from './Title';
 import BoxContainer from '../containers/Box';
 
-const App = ({ weather }) => {
-  console.log(weather);
-  return (
+const App = ({ weather }) =>
     <Fragment>
       {weather.cod !== "200" ?
         <Loader />
@@ -17,7 +15,6 @@ const App = ({ weather }) => {
         </ Fragment>
       }
     </ Fragment>
-  );
-};
+;
 
 export default App;
