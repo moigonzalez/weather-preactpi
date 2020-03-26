@@ -11,7 +11,7 @@
   /* Dark mode */
   --bg-color-dark: #3a3a3a;
   --font-color-dark: #fff;
-  --icon-color-dark: #9c9c9c;
+  --icon-color-dark: #fff;
   --box-shadow-dark: 0px 0px 18px -5px rgb(255, 255, 255);
 }
 
