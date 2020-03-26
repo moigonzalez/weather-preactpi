@@ -49,6 +49,20 @@ const App = () => {
       } else {
         document.body.classList.add('dark');
       }
+
+      const timeWorker = new Worker('../../static/update-dark-theme.js');
+      timeWorker.postMessage(JSON.stringify({
+        sunrise,
+        sunset
+      }));
+
+      timeWorker.onmessage = ({ data }) => {
+        if (data === 'day') {
+          document.body.classList.remove('dark');
+        } else {
+          document.body.classList.add('dark');
+        }
+      }
     }
   }, [sunrise, sunset])
 
