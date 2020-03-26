@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "cd functions/get-weather && npm i",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html && cd functions/get-weather && npm i",
     "dev": "netlify dev",
     "dev:client": "parcel src/index.html",
     "dev:server": "netlify dev",
