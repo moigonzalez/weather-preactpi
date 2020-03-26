@@ -6,9 +6,12 @@
   /* Light mode */
   --bg-color-light: #fff;
   --font-color-light: #000;
+  --icon-color-light: #9c9c9c;
   --box-shadow-light: 0px 0px 14px -5px rgba(0,0,0,0.25);
   /* Dark mode */
   --bg-color-dark: #3a3a3a;
+  --font-color-dark: #fff;
+  --icon-color-dark: #9c9c9c;
   --box-shadow-dark: 0px 0px 18px -5px rgb(255, 255, 255);
 }
 
@@ -23,6 +26,22 @@ body {
   -webkit-font-smoothing: antialiased;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   background-color: var(--bg-color-light);
+  color: var(--font-color-light);
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+body.dark {
+  background-color: var(--bg-color-dark);
+  color: var(--font-color-dark);
+}
+
+svg {
+  fill: var(--icon-color-light);
+  transition: fill 1s ease-in-out;
+}
+
+.dark svg {
+  fill: var(--icon-color-dark);
 }
 
 #app {
@@ -87,8 +106,15 @@ body {
 .box_item {
   text-align: center;
   border-radius: 5px;
-  box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.25);
+  box-shadow: var(--box-shadow-light);
+  transition: box-shadow 1s ease-in-out;
+  background-color: var(--bg-color-light);
   flex: 0.2;
+}
+
+.dark .box_item {
+  box-shadow: var(--box-shadow-dark);
+  color: var(--font-color-light);
 }
 
 .box_content {
