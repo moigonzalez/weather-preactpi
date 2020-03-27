@@ -28,6 +28,7 @@ body {
   background-color: var(--bg-color-light);
   color: var(--font-color-light);
   transition: background-color 1s ease-in-out, color 1s ease-in-out;
+  cursor: none;
 }
 
 body.dark {
