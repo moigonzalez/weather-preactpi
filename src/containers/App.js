@@ -9,6 +9,7 @@ const App = () => {
   const [weather, setWeather] = useState({});
   const [sunrise, setSunrise] = useState(0);
   const [sunset, setSunset] = useState(0);
+  const [themeChangeScheduled, setThemeChangeScheduled] = useState(false);
 
   const getWeather = () => {
     fetch('/.netlify/functions/get-weather')
@@ -43,11 +44,12 @@ const App = () => {
   }, [weather]);
 
   useEffect(() => {
-    if (sunrise !== 0 && sunset !== 0) {
-      if (sunrise < sunset) {
-        document.body.classList.remove('dark');
-      } else {
+    if (sunrise !== 0 && sunset !== 0 && !themeChangeScheduled) {
+      const now = new Date().getTime();
+      if (now > (sunset * 1000) || now < (sunrise * 1000)) {
         document.body.classList.add('dark');
+      } else {
+        document.body.classList.remove('dark');
       }
 
       const timeWorker = new Worker('../../static/update-dark-theme.js');
@@ -56,12 +58,15 @@ const App = () => {
         sunset
       }));
 
+      setThemeChangeScheduled(true);
+
       timeWorker.onmessage = ({ data }) => {
         if (data === 'day') {
           document.body.classList.remove('dark');
         } else {
           document.body.classList.add('dark');
         }
+        setThemeChangeScheduled(false);
       }
     }
   }, [sunrise, sunset])
