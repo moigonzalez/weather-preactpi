@@ -44,7 +44,7 @@ const App = () => {
   }, [weather]);
 
   useEffect(() => {
-    if (sunrise !== 0 && sunset !== 0 && !themeChangeScheduled) {
+    if (sunrise !== 0 && sunset !== 0) {
       const now = new Date().getTime();
       if (now > (sunset * 1000) || now < (sunrise * 1000)) {
         document.body.classList.add('dark');
@@ -52,21 +52,23 @@ const App = () => {
         document.body.classList.remove('dark');
       }
 
-      const timeWorker = new Worker('../../static/update-dark-theme.js');
-      timeWorker.postMessage(JSON.stringify({
-        sunrise,
-        sunset
-      }));
+      if (!themeChangeScheduled) {
+        const timeWorker = new Worker('../../static/update-dark-theme.js');
+        timeWorker.postMessage(JSON.stringify({
+          sunrise,
+          sunset
+        }));
 
-      setThemeChangeScheduled(true);
+        setThemeChangeScheduled(true);
 
-      timeWorker.onmessage = ({ data }) => {
-        if (data === 'day') {
-          document.body.classList.remove('dark');
-        } else {
-          document.body.classList.add('dark');
+        timeWorker.onmessage = ({ data }) => {
+          if (data === 'day') {
+            document.body.classList.remove('dark');
+          } else {
+            document.body.classList.add('dark');
+          }
+          setThemeChangeScheduled(false);
         }
-        setThemeChangeScheduled(false);
       }
     }
   }, [sunrise, sunset])
