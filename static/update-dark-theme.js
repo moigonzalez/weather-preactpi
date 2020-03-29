@@ -16,10 +16,10 @@ onmessage = ({ data }) => {
 
   const timeDiff = Math.floor((end - now));
 
-  console.log('next change', timeDiff);
-
   setTimeout(() => {
-    if (now > sunset_t || now < sunrise_t) {
+    const time = new Date().getTime();
+
+    if (time > sunset_t || time < sunrise_t) {
       postMessage('night');
     } else {
       postMessage('day');
